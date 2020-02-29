@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- On the left side there is a cabinet with mugs -->
+        <div class="cabinet left">
+            <div id="door-opening-left"></div>
+            <div class="shelf hidden">
+                <div class="mug" id="love">
+                    <h3>I love coffee</h3>
+                    <div class="mug-ear"></div>
+                </div>
+            </div>
+            <div class="shelf hidden">
+                <div class="mug" id="hate">
+                    <h3>I hate Mondays</h3>
+                    <div class="mug-ear"></div>
+                </div>
+            </div>
+            <div class="shelf hidden">
+                <div class="mug" id="fancy">
+                    <h3>Best mum</h3>
+                    <div class="mug-ear"></div>
+                </div>
+            </div>  
+        </div>
+        <!-- In the middle there is the coffee machine -->
+        <div class="coffee-machine">
+            <div class="upper-part">
+                <div class="selection">
+                    <div class="screen">
+                        <div class="select espresso">
+                            <h3>Espresso</h3>
+                        </div>
+                        <div class="select cappuccino">
+                            <h3>Cappuccino</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="power">
+                        <div class="on-off-button">
+                            <div class="on-sign hidden"></div>
+                        </div>
+                        <h2>ON / OFF</h2>
+                    </div>
+                    <div class="control-lights">
+                        <div class="row water-bar non-visible">
+                            <div class="bar"></div>
+                        </div>
+                        <div class="row">
+                            <div class="small-led non-visible" id="water-led"></div>
+                            <h3>Please add more water</h3>
+                        </div>
+                        <div class="row bean-bar non-visible">
+                            <div class="bar"></div> 
+                        </div>
+                        <div class="row">
+                            <div class="small-led non-visible" id="bean-led"></div>
+                            <h3>Please add more beans</h3>
+                        </div>
+                        <div class="row milk-bar non-visible">
+                            <div class="bar"></div>
+                        </div>
+                        <div class="row">
+                            <div class="small-led non-visible" id="milk-led"></div>
+                            <h3>Please add more milk</h3>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="bottom-part">
+                <div class="mug-container">
+                    <div class="opening"></div>
+                    <div class="liquids"></div>
+                    <div class="mug hidden" id="machine-mug">
+                        <h3 class="love hidden">I love coffee!</h3>
+                        <h3 class="hate hidden">I hate Mondays!</h3>
+                        <div class="mug-ear"></div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        <!-- On the right side there is a cabinet with containers for water coffee-beans and milk -->
+        <div class="cabinet right">
+            <div id="door-opening-right"></div>
+            <div class="shelf hidden">
+                <div class="mug jug-color">
+                    <div class="mug-label water">
+                        <h3>There is more water to refill</h3>
+                    </div>
+                    <div class="mug-ear jug-border"></div>
+                </div>
+            </div>
+            <div class="shelf hidden">
+                <div class="mug jug-color">
+                    <div class="mug-label beans">
+                        <h3>There are more beans to refill</h3>
+                    </div>
+                    <div class="mug-ear jug-border"></div>
+                </div>
+            </div>
+            <div class="shelf hidden">
+                <div class="mug jug-color">
+                    <div class="mug-label milk">
+                        <h3>There is more milk to refill</h3>
+                    </div>
+                    <div class="mug-ear jug-border"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="table"></div>
+<!-- Extras -->
+    <audio id="play" src="http://www.soundjay.com/button/beep-07.wav"></audio>
+
+    <script src="code.js"></script>
+</body>
+</html>

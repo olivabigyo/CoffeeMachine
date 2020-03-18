@@ -65,8 +65,9 @@
         if (!document.querySelector('.on-sign').classList.contains('hidden')) {
             // If enough ingredients
             if (barCounter(myWaterIndicator) > 0 && barCounter(myBeanIndicator) > 0) {
-                // Liquids into the mug
+                // Liquids into the mug for 4s
                 document.querySelector('.liquids').classList.add('liquid-coffee');
+                setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 4000)
                 // Remove One Ingredient bar
                 myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
                 myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
@@ -88,8 +89,9 @@
         if (!document.querySelector('.on-sign').classList.contains('hidden')) {
             // If enough ingredients
             if (barCounter(myWaterIndicator) > 0 && barCounter(myBeanIndicator) > 0 && barCounter(myMilkIndicator) > 0) {
-                // Liquids into the mug
+                // Liquids into the mug for 4s
                 document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
+                setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 4000)
                 // Remove One Ingredient bar
                 myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
                 myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));

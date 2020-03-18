@@ -11,6 +11,7 @@
     const myMachineMug = document.querySelector('#machine-mug');
     const myLoveMug = document.querySelector('#love');
     const myHateMug = document.querySelector('#hate');
+    const myMomMug = document.querySelector('#mom');
 
     const myWaterIndicator = document.querySelector('.water-bar');
     const myBeanIndicator = document.querySelector('.bean-bar');
@@ -147,11 +148,21 @@
         }
     });
 
+    myMomMug.addEventListener('click', function() {
+        // If no mug in the Machine
+        if (myMachineMug.classList.contains('hidden')) {
+            myMomMug.classList.add('hidden');
+            document.querySelector('#machine-mug').classList.remove('hidden');
+            document.querySelector('#machine-mug .mom').classList.remove('hidden');
+        }
+    });
+
     // Removing mug from the machine
     myMachineMug.addEventListener('click', function() {
         myMachineMug.classList.add('hidden');
         document.querySelector('#machine-mug .hate').classList.add('hidden');
         document.querySelector('#machine-mug .love').classList.add('hidden');
+        document.querySelector('#machine-mug .mom').classList.add('hidden');
         document.querySelector('.liquids').classList.remove('liquid-coffee');
         document.querySelector('.liquids').classList.remove('liquid-milk');
     });

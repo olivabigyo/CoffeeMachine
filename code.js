@@ -66,12 +66,21 @@
         if (!document.querySelector('.on-sign').classList.contains('hidden')) {
             // If enough ingredients
             if (barCounter(myWaterIndicator) > 0 && barCounter(myBeanIndicator) > 0) {
-                // Liquids into the mug for 4s
-                document.querySelector('.liquids').classList.add('liquid-coffee');
-                setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 4000)
-                // Remove One Ingredient bar
-                myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
-                myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
+                // If NO mug in the machine
+                if (myMachineMug.classList.contains('hidden')) {
+                    // Showw message, do not spill coffee :)
+                    document.querySelector('.liquids h3').classList.remove('hidden');
+                    setTimeout(() => document.querySelector('.liquids h3').classList.add('hidden'), 2000)
+                }
+                // If there IS a mug in the machine
+                else {
+                    // Liquids into the mug for 3s
+                    document.querySelector('.liquids').classList.add('liquid-coffee');
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 3000)
+                    // Remove One Ingredient bar
+                    myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
+                    myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
+                }    
             }
             if (barCounter(myWaterIndicator) == 0) {
                 document.querySelector('#water-led').classList.add('on');
@@ -90,13 +99,22 @@
         if (!document.querySelector('.on-sign').classList.contains('hidden')) {
             // If enough ingredients
             if (barCounter(myWaterIndicator) > 0 && barCounter(myBeanIndicator) > 0 && barCounter(myMilkIndicator) > 0) {
-                // Liquids into the mug for 4s
-                document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
-                setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 4000)
-                // Remove One Ingredient bar
-                myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
-                myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
-                myMilkIndicator.removeChild(myMilkIndicator.querySelector('.second-bar'));
+                // If NO mug in the machine
+                if (myMachineMug.classList.contains('hidden')) {
+                    // Show message, do not spill coffee :)
+                    document.querySelector('.liquids h3').classList.remove('hidden');
+                    setTimeout(() => document.querySelector('.liquids h3').classList.add('hidden'), 2000)
+                }
+                // If there IS a mug in the machine
+                else {
+                    // Liquids into the mug for 3s
+                    document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 3000)
+                    // Remove One Ingredient bar
+                    myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
+                    myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
+                    myMilkIndicator.removeChild(myMilkIndicator.querySelector('.second-bar'));
+                }
             }
             // Led: Check if ingredients out
             if (barCounter(myWaterIndicator) == 0) {

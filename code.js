@@ -13,6 +13,9 @@
     const myLoveMug = document.querySelector('#love');
     const myHateMug = document.querySelector('#hate');
     const myMomMug = document.querySelector('#mom');
+    const myCodeMug = document.querySelector('#code');
+    const mySmileMug = document.querySelector('#smile');
+    const myMagicMug = document.querySelector('#magic');
 
     const myWaterIndicator = document.querySelector('.water-bar');
     const myBeanIndicator = document.querySelector('.bean-bar');
@@ -32,8 +35,11 @@
     const barCounter = function(element) {
         return element.querySelectorAll('.second-bar').length;
     };
-    // Counter for used up mugs
+    // Counter for filled and used up mugs
     let myUsedUpMugCounter = 0;
+    let myMugFilledCounter =0;
+    // Indicator for filled mugs
+    let mugFilled = false;
 
     // Led: Check if ingredients out
     if (barCounter(myWaterIndicator) == 0) {
@@ -85,7 +91,10 @@
                 else {
                     // Liquids into the mug for 3s
                     document.querySelector('.liquids').classList.add('liquid-coffee');
-                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 3000)
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 3000);
+                    mugFilled = true;
+                    myMugFilledCounter++;
+                    console.log('The mug was filled with coffee');
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
                     myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
@@ -103,7 +112,7 @@
     // Select Buttons Pushed
     // Selecting Cappuccino   
     myCappuccinoButton.addEventListener('click', function() {
-        console.log('Cappuccino Select button was pushed')
+        console.log('Cappuccino Select button was pushed');
         // If Machine ON
         if (!document.querySelector('.on-sign').classList.contains('hidden')) {
             // If enough ingredients
@@ -112,13 +121,26 @@
                 if (myMachineMug.classList.contains('hidden')) {
                     // Show message, do not spill coffee :)
                     document.querySelector('.liquids h3').classList.remove('hidden');
-                    setTimeout(() => document.querySelector('.liquids h3').classList.add('hidden'), 2000)
+                    setTimeout(() => document.querySelector('.liquids h3').classList.add('hidden'), 2000);
                 }
                 // If there IS a mug in the machine
                 else {
                     // Liquids into the mug for 3s
                     document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
                     setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 3000)
+                    mugFilled = true;
+                    myMugFilledCounter++;
+                    console.log('The mug was filled with coffee');
+                    // On first use
+                    if (myMugFilledCounter == 1 ) {
+                        // From now on Rewards display free
+                        myRewards.classList.remove('hidden');
+                        // First achievement display on hover
+                        myFirstAchievement.classList.remove('hidden');
+                        myFirstAward.classList.add('done');
+                        myFirstAward.classList.add('shine-up');
+                        setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
+                    }
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
                     myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
@@ -184,20 +206,37 @@
         }
     });
 
+    myCodeMug.addEventListener('click', function() {
+        // If no mug in the Machine
+        if (myMachineMug.classList.contains('hidden')) {
+            myCodeMug.classList.add('hidden');
+            document.querySelector('#machine-mug').classList.remove('hidden');
+            document.querySelector('#machine-mug .code').classList.remove('hidden');
+        }
+    });
+
+    mySmileMug.addEventListener('click', function() {
+        // If no mug in the Machine
+        if (myMachineMug.classList.contains('hidden')) {
+            mySmileMug.classList.add('hidden');
+            document.querySelector('#machine-mug').classList.remove('hidden');
+            document.querySelector('#machine-mug .smile').classList.remove('hidden');
+        }
+    });
+
+    myMagicMug.addEventListener('click', function() {
+        // If no mug in the Machine
+        if (myMachineMug.classList.contains('hidden')) {
+            myMagicMug.classList.add('hidden');
+            document.querySelector('#machine-mug').classList.remove('hidden');
+            document.querySelector('#machine-mug .magic').classList.remove('hidden');
+        }
+    });
+
     // Removing mug from the machine
     myMachineMug.addEventListener('click', function() {
         myMachineMug.classList.add('hidden');
         myUsedUpMugCounter++;
-        // On first use
-        if (myUsedUpMugCounter == 1) {
-            // From now on Rewards display free
-            myRewards.classList.remove('hidden');
-            // First achievement display on hover
-            myFirstAchievement.classList.remove('hidden');
-            myFirstAward.classList.add('done');
-            myFirstAward.classList.add('shine-up');
-            setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
-        }
         if (myUsedUpMugCounter == 3) {
             // Second achievent display on hover
             mySecondAchievement.classList.remove('hidden');
@@ -209,6 +248,9 @@
         document.querySelector('#machine-mug .hate').classList.add('hidden');
         document.querySelector('#machine-mug .love').classList.add('hidden');
         document.querySelector('#machine-mug .mom').classList.add('hidden');
+        document.querySelector('#machine-mug .code').classList.add('hidden');
+        document.querySelector('#machine-mug .smile').classList.add('hidden');
+        document.querySelector('#machine-mug .magic').classList.add('hidden');
         document.querySelector('.liquids').classList.remove('liquid-coffee');
         document.querySelector('.liquids').classList.remove('liquid-milk');
     });
@@ -226,7 +268,6 @@
             newBar.setAttribute('class', 'second-bar');
             myWaterIndicator.appendChild(newBar);
             console.log('Water was added.');
-            document.querySelector('#water-led').classList.remove('on');
         }
     });
 
@@ -243,7 +284,6 @@
             newBar.setAttribute('class', 'second-bar');
             myBeanIndicator.appendChild(newBar);
             console.log('Bean was added.');
-            document.querySelector('#bean-led').classList.remove('on');
         }
     });
 
@@ -267,13 +307,19 @@
     // START Button pushed
     
     myStartButton.addEventListener('click', function() {
-        console.log('Start Button was clicked.');
-        // On sign on the button and beep
+        console.log('Dishwasher Start button was clicked.');
+        // On-sign to the button
         document.querySelector('.dish-on-sign').classList.remove('hidden');
+        // Water Splash sound on the machine twice 
         document.getElementById('play-start').play();
         setTimeout(() => document.getElementById('play-start').play(), 2000);
+        // On-sign off
         setTimeout(() => document.querySelector('.dish-on-sign').classList.add('hidden'), 2000);
+        // All mugs back to the cabinet (extra too)
         setTimeout(() => myLoveMug.classList.remove('hidden'), 3000);
         setTimeout(() => myHateMug.classList.remove('hidden'), 3000);
         setTimeout(() => myMomMug.classList.remove('hidden'), 3000);
+        setTimeout(() => myCodeMug.classList.remove('hidden'), 3000);
+        setTimeout(() => mySmileMug.classList.remove('hidden'), 3000);
+        setTimeout(() => myMagicMug.classList.remove('hidden'), 3000);
     })

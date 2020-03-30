@@ -53,7 +53,7 @@
         console.log('On/Off Button was clicked.');
         // On sign on the button and beep
         document.querySelector('.on-sign').classList.toggle('hidden');
-        document.getElementById('play').play();
+        document.getElementById('play-on').play();
         // Screen on
         document.querySelector('.cappuccino').classList.toggle('screen-on');
         document.querySelector('.espresso').classList.toggle('screen-on');
@@ -195,13 +195,16 @@
             // First achievement display on hover
             myFirstAchievement.classList.remove('hidden');
             myFirstAward.classList.add('done');
+            myFirstAward.classList.add('shine-up');
+            setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
         }
         if (myUsedUpMugCounter == 3) {
             // Second achievent display on hover
             mySecondAchievement.classList.remove('hidden');
-            mySecondAward.classList.add('done');
             myDishwasher.classList.remove('hidden');
-
+            mySecondAward.classList.add('done');
+            mySecondAward.classList.add('shine-up');
+            setTimeout(() => mySecondAward.classList.remove('shine-up'), 1000);
         }
         document.querySelector('#machine-mug .hate').classList.add('hidden');
         document.querySelector('#machine-mug .love').classList.add('hidden');
@@ -266,6 +269,11 @@
     myStartButton.addEventListener('click', function() {
         console.log('Start Button was clicked.');
         // On sign on the button and beep
-        document.querySelector('.dish-on-sign').classList.toggle('hidden');
-        document.getElementById('play').play();
+        document.querySelector('.dish-on-sign').classList.remove('hidden');
+        document.getElementById('play-start').play();
+        setTimeout(() => document.getElementById('play-start').play(), 2000);
+        setTimeout(() => document.querySelector('.dish-on-sign').classList.add('hidden'), 2000);
+        setTimeout(() => myLoveMug.classList.remove('hidden'), 3000);
+        setTimeout(() => myHateMug.classList.remove('hidden'), 3000);
+        setTimeout(() => myMomMug.classList.remove('hidden'), 3000);
     })

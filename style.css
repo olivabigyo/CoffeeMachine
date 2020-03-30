@@ -293,10 +293,9 @@ main {
 /* Ground */
 .table {
     width: 1900px;
-    height: 20px;
-    background-color: black;
+    min-height: 25px;
+    border: 10px solid black;
     margin: 0 auto;
-    /* margin-bottom: 100px; */
 }
 
 /* Achievements and Rewards */
@@ -311,6 +310,14 @@ main {
 }
 .rewards i.done {
     color: black;
+}
+.rewards i.shine-up {
+    animation: shineUp 1s;
+}
+@keyframes shineUp {
+    0% {    transform: scale(1);}
+    50% {   transform: scale(2);}
+    100% {  transform: scale(1);}
 }
 
 .rewards:hover .achievement-texts {

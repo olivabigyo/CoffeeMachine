@@ -89,12 +89,21 @@
                 }
                 // If there IS a mug in the machine
                 else {
-                    // Liquids into the mug for 3s
-                    document.querySelector('.liquids').classList.add('liquid-coffee');
-                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 3000);
                     mugFilled = true;
                     myMugFilledCounter++;
                     console.log('The mug was filled with coffee');
+                    if (myMugFilledCounter == 1 ) {
+                        // From now on Rewards display free
+                        myRewards.classList.remove('hidden');
+                        // First achievement display on hover
+                        myFirstAchievement.classList.remove('hidden');
+                        myFirstAward.classList.add('done');
+                        myFirstAward.classList.add('shine-up');
+                        setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
+                    }
+                    // Liquids into the mug for 3s
+                    document.querySelector('.liquids').classList.add('liquid-coffee');
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 3000);
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
                     myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
@@ -125,9 +134,6 @@
                 }
                 // If there IS a mug in the machine
                 else {
-                    // Liquids into the mug for 3s
-                    document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
-                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 3000)
                     mugFilled = true;
                     myMugFilledCounter++;
                     console.log('The mug was filled with coffee');
@@ -141,6 +147,9 @@
                         myFirstAward.classList.add('shine-up');
                         setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
                     }
+                    // Liquids into the mug for 3s
+                    document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 3000)
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
                     myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));

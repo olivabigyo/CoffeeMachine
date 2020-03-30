@@ -28,9 +28,11 @@
     const myRewards = document.querySelector('.rewards');
     const myFirstAward = document.querySelector('.first-award');
     const mySecondAward = document.querySelector('.second-award');
+    const myThirdAward = document.querySelector('.third-award');
 
     const myFirstAchievement = document.querySelector('.first-achievement')
     const mySecondAchievement = document.querySelector('.second-achievement')
+    const myThirdAchievement = document.querySelector('.third-achievement')
     // Bar Counter function
     const barCounter = function(element) {
         return element.querySelectorAll('.second-bar').length;
@@ -104,6 +106,18 @@
                     // Liquids into the mug for 3s
                     document.querySelector('.liquids').classList.add('liquid-coffee');
                     setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 3000);
+                    // If Magic mug used
+                    if (!document.querySelector('#machine-mug h3.magic').classList.contains('hidden')) {
+                        console.log('Magic mug is used');
+                        // Do magic label
+                        document.querySelector('#machine-mug h3.magic').classList.add('hidden');
+                        document.querySelector('.do-magic-label').classList.remove('hidden');
+                        // Third Achievement revealed
+                        myThirdAchievement.classList.remove('hidden');
+                        myThirdAward.classList.add('done');
+                        myThirdAward.classList.add('shine-up');
+                        setTimeout(() => myThirdAward.classList.remove('shine-up'), 1000);
+                    }
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
                     myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
@@ -139,7 +153,7 @@
                     console.log('The mug was filled with coffee');
                     // On first use
                     if (myMugFilledCounter == 1 ) {
-                        // From now on Rewards display free
+                        // From now on Rewards display
                         myRewards.classList.remove('hidden');
                         // First achievement display on hover
                         myFirstAchievement.classList.remove('hidden');
@@ -150,6 +164,18 @@
                     // Liquids into the mug for 3s
                     document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
                     setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 3000)
+                    // If Magic mug used
+                    if (!document.querySelector('#machine-mug h3.magic').classList.contains('hidden')) {
+                        console.log('Magic mug is used');
+                        // Do magic label
+                        document.querySelector('#machine-mug h3.magic').classList.add('hidden');
+                        document.querySelector('.do-magic-label').classList.remove('hidden');
+                        // Third Achievement revealed
+                        myThirdAchievement.classList.remove('hidden');
+                        myThirdAward.classList.add('done');
+                        myThirdAward.classList.add('shine-up');
+                        setTimeout(() => myThirdAward.classList.remove('shine-up'), 1000);
+                    }
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
                     myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
@@ -260,6 +286,7 @@
         document.querySelector('#machine-mug .code').classList.add('hidden');
         document.querySelector('#machine-mug .smile').classList.add('hidden');
         document.querySelector('#machine-mug .magic').classList.add('hidden');
+        document.querySelector('#machine-mug .do-magic-label').classList.add('hidden');
         document.querySelector('.liquids').classList.remove('liquid-coffee');
         document.querySelector('.liquids').classList.remove('liquid-milk');
     });

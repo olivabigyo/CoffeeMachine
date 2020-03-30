@@ -245,6 +245,19 @@ main {
     margin-right: 0;
 }
 
+.do-magic-label {
+    width: 120px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+    background: rgb(231,66,125);
+    background: linear-gradient(39deg, rgba(231,66,125,1) 0%, rgba(110,232,230,1) 50%, rgba(255,93,0,1) 100%);
+    
+}
+
 .mug-ear {
     position: absolute;
     left: 70px;

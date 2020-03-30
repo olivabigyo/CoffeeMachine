@@ -3,10 +3,11 @@
     const myOnOffButton = document.querySelector('.on-off-button');
     const myCappuccinoButton = document.querySelector('.cappuccino');
     const myEspressoButton = document.querySelector('.espresso');
+    const myStartButton = document.querySelector('.start-button');
 
     const myLeftCabinet = document.querySelector('.left');
     const myRightCabinet = document.querySelector('.right');
-
+    const myDishwasher = document.querySelector('.dishwasher');
 
     const myMachineMug = document.querySelector('#machine-mug');
     const myLoveMug = document.querySelector('#love');
@@ -199,6 +200,8 @@
             // Second achievent display on hover
             mySecondAchievement.classList.remove('hidden');
             mySecondAward.classList.add('done');
+            myDishwasher.classList.remove('hidden');
+
         }
         document.querySelector('#machine-mug .hate').classList.add('hidden');
         document.querySelector('#machine-mug .love').classList.add('hidden');
@@ -256,3 +259,13 @@
             console.log('Milk was added.');
         }
     });
+
+    // Dishwasher
+    // START Button pushed
+    
+    myStartButton.addEventListener('click', function() {
+        console.log('Start Button was clicked.');
+        // On sign on the button and beep
+        document.querySelector('.dish-on-sign').classList.toggle('hidden');
+        document.getElementById('play').play();
+    })

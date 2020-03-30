@@ -139,7 +139,7 @@ main {
     cursor: pointer;
 }
 
-.on-sign {
+.on-sign, .dish-on-sign {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -234,11 +234,15 @@ main {
     position: relative;
     width: 120px;
     height: 160px;
+    margin-right: 56px;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+#machine-mug {
+    margin-right: 0;
 }
 
 .mug-ear {
@@ -292,7 +296,7 @@ main {
     height: 20px;
     background-color: black;
     margin: 0 auto;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
 }
 
 /* Achievements and Rewards */
@@ -326,7 +330,36 @@ main {
     margin-top: 3px;
     border: 1px solid gray;
 }
+/* Dishwasher */
+.dishwasher {
+    width: 600px;
+    height: 650px;
+    background: grey;
+    margin: 0 auto;
+    padding: 10px;
+}
 
+.dish-controls {
+    background: darkgrey;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 30px;
+}
+.dishwasher p {
+    font-size: 1.5rem;
+}
+
+.start-button {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 10px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 /* Specials */
 .hidden {
     display: none;

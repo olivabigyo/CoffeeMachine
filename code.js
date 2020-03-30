@@ -22,7 +22,11 @@
     const myMilkTank = document.querySelector('.mug .milk');
     
     const myRewards = document.querySelector('.rewards');
+    const myFirstAward = document.querySelector('.first-award');
+    const mySecondAward = document.querySelector('.second-award');
+
     const myFirstAchievement = document.querySelector('.first-achievement')
+    const mySecondAchievement = document.querySelector('.second-achievement')
     // Bar Counter function
     const barCounter = function(element) {
         return element.querySelectorAll('.second-bar').length;
@@ -189,7 +193,12 @@
             myRewards.classList.remove('hidden');
             // First achievement display on hover
             myFirstAchievement.classList.remove('hidden');
-
+            myFirstAward.classList.add('done');
+        }
+        if (myUsedUpMugCounter == 3) {
+            // Second achievent display on hover
+            mySecondAchievement.classList.remove('hidden');
+            mySecondAward.classList.add('done');
         }
         document.querySelector('#machine-mug .hate').classList.add('hidden');
         document.querySelector('#machine-mug .love').classList.add('hidden');

@@ -21,10 +21,14 @@
     const myBeanTank = document.querySelector('.mug .beans');
     const myMilkTank = document.querySelector('.mug .milk');
     
+    const myRewards = document.querySelector('.rewards');
+    const myFirstAchievement = document.querySelector('.first-achievement')
     // Bar Counter function
     const barCounter = function(element) {
         return element.querySelectorAll('.second-bar').length;
     };
+    // Counter for used up mugs
+    let myUsedUpMugCounter = 0;
 
     // Led: Check if ingredients out
     if (barCounter(myWaterIndicator) == 0) {
@@ -178,6 +182,15 @@
     // Removing mug from the machine
     myMachineMug.addEventListener('click', function() {
         myMachineMug.classList.add('hidden');
+        myUsedUpMugCounter++;
+        // On first use
+        if (myUsedUpMugCounter == 1) {
+            // From now on Rewards display free
+            myRewards.classList.remove('hidden');
+            // First achievement display on hover
+            myFirstAchievement.classList.remove('hidden');
+
+        }
         document.querySelector('#machine-mug .hate').classList.add('hidden');
         document.querySelector('#machine-mug .love').classList.add('hidden');
         document.querySelector('#machine-mug .mom').classList.add('hidden');

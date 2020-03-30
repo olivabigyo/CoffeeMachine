@@ -10,7 +10,7 @@
 }
 
 main {
-    width: 1900px;
+    max-width: 1900px;
     display: flex;
     align-items: flex-end;
     margin: 0 auto;
@@ -294,6 +294,39 @@ main {
     margin: 0 auto;
     margin-bottom: 100px;
 }
+
+/* Achievements and Rewards */
+.rewards {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+.rewards i {
+    color: grey;
+    font-size: 4rem;
+}
+.rewards i.done {
+    color: black;
+}
+
+.rewards:hover .achievement-texts {
+    display: flex;
+    flex-direction: column;
+}
+
+.achievement-texts {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    width: 180px;
+    display: none;
+}
+.achievement-texts p {
+    padding: 5px;
+    margin-top: 3px;
+    border: 1px solid gray;
+}
+
 /* Specials */
 .hidden {
     display: none;

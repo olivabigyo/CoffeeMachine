@@ -257,7 +257,7 @@ main {
     background: linear-gradient(39deg, rgba(231,66,125,1) 0%, rgba(110,232,230,1) 50%, rgba(255,93,0,1) 100%);  
 }
 .take-away {
-    animation: takeAway 2s;
+    animation: takeAway 1.5s;
 }
 
 @keyframes takeAway {
@@ -325,7 +325,7 @@ main {
     right: 50px;
 }
 .rewards i {
-    color: grey;
+    color: darkgrey;
     font-size: 4rem;
 }
 .rewards i.done {
@@ -393,14 +393,29 @@ main {
     position: absolute;
     top: 20px;
     left: 30px;
-    /* background: blue; */
+    background: darkgrey;
     border: 2px solid gray;
     border-radius: 10px;
+    padding: 5px;
 }
 
 .counter-display h4 {
     padding: 0.5rem;
+}
 
+.trophies {
+    position: absolute;
+    top: 120px;
+    left: 30px;
+}
+
+.trophies i {
+    font-size: 3rem;
+    color: darkgrey;
+}
+
+.trophies i.done {
+    color: black;
 }
 
 /* Specials */

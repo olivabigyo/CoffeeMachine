@@ -33,6 +33,8 @@
     const myFirstAchievement = document.querySelector('.first-achievement');
     const mySecondAchievement = document.querySelector('.second-achievement');
     const myThirdAchievement = document.querySelector('.third-achievement');
+
+    const myFirstTrophy = document.querySelector('.first-trophy');
     // Bar Counter function
     const barCounter = function(element) {
         return element.querySelectorAll('.second-bar').length;
@@ -107,9 +109,13 @@
                         myFirstAward.classList.add('shine-up');
                         setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
                     }
+                    // For the 10th coffee
+                    if (myMugFilledCounter > 9) {
+                        myFirstTrophy.classList.add('done');
+                    }
                     // Liquids into the mug for 3s
                     document.querySelector('.liquids').classList.add('liquid-coffee');
-                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 3000);
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 2500);
                     // If Magic mug used
                     if (!document.querySelector('#machine-mug h3.magic').classList.contains('hidden')) {
                         console.log('Magic mug is used');
@@ -117,6 +123,7 @@
                         document.querySelector('#machine-mug h3.magic').classList.add('hidden');
                         document.querySelector('.do-magic-label').classList.remove('hidden');
                         // Third Achievement revealed
+                        myCounterDisplay.classList.remove('hidden');
                         myThirdAchievement.classList.remove('hidden');
                         myThirdAward.classList.add('done');
                         myThirdAward.classList.add('shine-up');
@@ -166,9 +173,13 @@
                         myFirstAward.classList.add('shine-up');
                         setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
                     }
+                    // For the 10th coffee
+                    if (myMugFilledCounter > 9) {
+                        myFirstTrophy.classList.add('done');
+                    }
                     // Liquids into the mug for 3s
                     document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
-                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 3000)
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 2500)
                     // If Magic mug used
                     if (!document.querySelector('#machine-mug h3.magic').classList.contains('hidden')) {
                         console.log('Magic mug is used');
@@ -176,11 +187,11 @@
                         document.querySelector('#machine-mug h3.magic').classList.add('hidden');
                         document.querySelector('.do-magic-label').classList.remove('hidden');
                         // Third Achievement revealed
+                        myCounterDisplay.classList.remove('hidden');
                         myThirdAchievement.classList.remove('hidden');
                         myThirdAward.classList.add('done');
                         myThirdAward.classList.add('shine-up');
                         setTimeout(() => myThirdAward.classList.remove('shine-up'), 1000);
-                        myCounterDisplay.classList.remove('hidden');
                     }
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
@@ -278,8 +289,8 @@
     myMachineMug.addEventListener('click', function() {
         // Take Away animation and mug off
         myMachineMug.classList.add('take-away');
-        setTimeout(() => myMachineMug.classList.remove('take-away'), 2000);
-        setTimeout(() => myMachineMug.classList.add('hidden'), 2000);
+        setTimeout(() => myMachineMug.classList.remove('take-away'), 1500);
+        setTimeout(() => myMachineMug.classList.add('hidden'), 1500);
         myUsedUpMugCounter++;
         myUsedUpMugLabel.innerHTML = `You used up ${myUsedUpMugCounter} mugs`
         mugFilled = false;

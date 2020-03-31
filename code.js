@@ -30,9 +30,9 @@
     const mySecondAward = document.querySelector('.second-award');
     const myThirdAward = document.querySelector('.third-award');
 
-    const myFirstAchievement = document.querySelector('.first-achievement')
-    const mySecondAchievement = document.querySelector('.second-achievement')
-    const myThirdAchievement = document.querySelector('.third-achievement')
+    const myFirstAchievement = document.querySelector('.first-achievement');
+    const mySecondAchievement = document.querySelector('.second-achievement');
+    const myThirdAchievement = document.querySelector('.third-achievement');
     // Bar Counter function
     const barCounter = function(element) {
         return element.querySelectorAll('.second-bar').length;
@@ -40,6 +40,9 @@
     // Counter for filled and used up mugs
     let myUsedUpMugCounter = 0;
     let myMugFilledCounter =0;
+    const myCounterDisplay = document.querySelector('.counter-display');
+    const myUsedUpMugLabel = document.querySelector('.counter-display .mug-count');
+    const myCoffeeMadeLabel = document.querySelector('.counter-display .coffee-count');
     // Indicator for filled mugs
     let mugFilled = false;
 
@@ -94,6 +97,7 @@
                     mugFilled = true;
                     myMugFilledCounter++;
                     console.log('The mug was filled with coffee');
+                    myCoffeeMadeLabel.innerHTML = `Your machine made ${myMugFilledCounter} coffee`
                     if (myMugFilledCounter == 1 ) {
                         // From now on Rewards display free
                         myRewards.classList.remove('hidden');
@@ -151,6 +155,7 @@
                     mugFilled = true;
                     myMugFilledCounter++;
                     console.log('The mug was filled with coffee');
+                    myCoffeeMadeLabel.innerHTML = `Your machine made ${myMugFilledCounter} coffee`
                     // On first use
                     if (myMugFilledCounter == 1 ) {
                         // From now on Rewards display
@@ -175,6 +180,7 @@
                         myThirdAward.classList.add('done');
                         myThirdAward.classList.add('shine-up');
                         setTimeout(() => myThirdAward.classList.remove('shine-up'), 1000);
+                        myCounterDisplay.classList.remove('hidden');
                     }
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
@@ -275,6 +281,8 @@
         setTimeout(() => myMachineMug.classList.remove('take-away'), 2000);
         setTimeout(() => myMachineMug.classList.add('hidden'), 2000);
         myUsedUpMugCounter++;
+        myUsedUpMugLabel.innerHTML = `You used up ${myUsedUpMugCounter} mugs`
+        mugFilled = false;
         if (myUsedUpMugCounter == 3) {
             // Second achievement display on hover
             mySecondAchievement.classList.remove('hidden');

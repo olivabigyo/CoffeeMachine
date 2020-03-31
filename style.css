@@ -405,8 +405,8 @@ main {
 
 .trophies {
     position: absolute;
-    top: 120px;
-    left: 30px;
+    top: 100px;
+    left: 10px;
 }
 
 .trophies i {

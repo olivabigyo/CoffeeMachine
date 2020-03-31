@@ -270,16 +270,20 @@
 
     // Removing mug from the machine
     myMachineMug.addEventListener('click', function() {
-        myMachineMug.classList.add('hidden');
+        // Take Away animation and mug off
+        myMachineMug.classList.add('take-away');
+        setTimeout(() => myMachineMug.classList.remove('take-away'), 2000);
+        setTimeout(() => myMachineMug.classList.add('hidden'), 2000);
         myUsedUpMugCounter++;
         if (myUsedUpMugCounter == 3) {
-            // Second achievent display on hover
+            // Second achievement display on hover
             mySecondAchievement.classList.remove('hidden');
             myDishwasher.classList.remove('hidden');
             mySecondAward.classList.add('done');
             mySecondAward.classList.add('shine-up');
             setTimeout(() => mySecondAward.classList.remove('shine-up'), 1000);
         }
+        // Labels and liquids off
         document.querySelector('#machine-mug .hate').classList.add('hidden');
         document.querySelector('#machine-mug .love').classList.add('hidden');
         document.querySelector('#machine-mug .mom').classList.add('hidden');
@@ -288,7 +292,7 @@
         document.querySelector('#machine-mug .magic').classList.add('hidden');
         document.querySelector('#machine-mug .do-magic-label').classList.add('hidden');
         document.querySelector('.liquids').classList.remove('liquid-coffee');
-        document.querySelector('.liquids').classList.remove('liquid-milk');
+        document.querySelector('.liquids').classList.remove('liquid-milk'); 
     });
 
      // Adding Water from the jar to the Machine

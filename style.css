@@ -254,8 +254,15 @@ main {
     text-align: center;
     z-index: 100;
     background: rgb(231,66,125);
-    background: linear-gradient(39deg, rgba(231,66,125,1) 0%, rgba(110,232,230,1) 50%, rgba(255,93,0,1) 100%);
-    
+    background: linear-gradient(39deg, rgba(231,66,125,1) 0%, rgba(110,232,230,1) 50%, rgba(255,93,0,1) 100%);  
+}
+.take-away {
+    animation: takeAway 2s;
+}
+
+@keyframes takeAway {
+    0%     {    transform: scale(1); opacity: 1;}
+    100%   {    transform: scale(2); opacity: 0;}
 }
 
 .mug-ear {

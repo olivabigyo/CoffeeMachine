@@ -9,12 +9,20 @@
     box-sizing: border-box;
 }
 
+nav {
+    max-width: 1900px;
+    height: 100px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+}
 main {
     max-width: 1900px;
     display: flex;
     align-items: flex-end;
     margin: 0 auto;
-    margin-top: 100px;
 }
 
 /* Cabinet */
@@ -152,7 +160,6 @@ main {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    /* background-color: yellow; */
 }
 
 .row {
@@ -318,45 +325,7 @@ main {
     margin: 0 auto;
 }
 
-/* Achievements and Rewards */
-.rewards {
-    position: absolute;
-    top: 20px;
-    right: 50px;
-}
-.rewards i {
-    color: darkgrey;
-    font-size: 4rem;
-}
-.rewards i.done {
-    color: black;
-}
-.rewards i.shine-up {
-    animation: shineUp 1s;
-}
-@keyframes shineUp {
-    0% {    transform: scale(1);}
-    50% {   transform: scale(2);}
-    100% {  transform: scale(1);}
-}
 
-.rewards:hover .achievement-texts {
-    display: flex;
-    flex-direction: column;
-}
-
-.achievement-texts {
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    width: 180px;
-    display: none;
-}
-.achievement-texts p {
-    padding: 5px;
-    margin-top: 3px;
-    border: 1px solid gray;
-}
 /* Dishwasher */
 .dishwasher {
     width: 600px;
@@ -388,13 +357,49 @@ main {
     cursor: pointer;
 }
 
+/* Achievements and Rewards */
+.rewards {
+    display: flex;
+}
+.rewards i {
+    color: darkgrey;
+    font-size: 4rem;
+    margin: 2px;
+}
+.rewards i.done {
+    color: black;
+}
+.rewards i.shine-up {
+    animation: shineUp 1s;
+}
+@keyframes shineUp {
+    0% {    transform: scale(1);}
+    50% {   transform: scale(2);}
+    100% {  transform: scale(1);}
+}
+
+.rewards:hover .achievement-texts {
+    display: flex;
+    flex-direction: column;
+}
+
+.achievement-texts {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    width: 180px;
+    display: none;
+}
+.achievement-texts p {
+    padding: 5px;
+    margin-top: 3px;
+    border: 1px solid grey;
+}
+
 /* Counter Display */
 .counter-display {
-    position: absolute;
-    top: 20px;
-    left: 30px;
     background: darkgrey;
-    border: 2px solid gray;
+    border: 2px solid grey;
     border-radius: 10px;
     padding: 5px;
 }
@@ -404,19 +409,35 @@ main {
 }
 
 .trophies {
-    position: absolute;
-    top: 100px;
-    left: 10px;
+    display: flex;
+    margin-top: 10px;
 }
 
 .trophies i {
     font-size: 3rem;
+    margin: 2px;
     color: darkgrey;
 }
 
 .trophies i.done {
     color: black;
 }
+
+/* Awards */
+.star-awards {
+    display: flex;
+}
+.star-awards i {
+    color: darkgrey;
+    font-size: 3rem;
+}
+.star-awards i.done {
+    color: black;
+}
+.star-awards i.shine-up {
+    animation: shineUp 1s;
+}
+
 
 /* Specials */
 .hidden {

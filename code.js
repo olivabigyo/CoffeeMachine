@@ -1,14 +1,15 @@
     
-    // Consts
+    // Constants
+    // Buttons
     const myOnOffButton = document.querySelector('.on-off-button');
     const myCappuccinoButton = document.querySelector('.cappuccino');
     const myEspressoButton = document.querySelector('.espresso');
     const myStartButton = document.querySelector('.start-button');
-
+    // Objects
     const myLeftCabinet = document.querySelector('.left');
     const myRightCabinet = document.querySelector('.right');
     const myDishwasher = document.querySelector('.dishwasher');
-
+    // Mugs
     const myMachineMug = document.querySelector('#machine-mug');
     const myLoveMug = document.querySelector('#love');
     const myHateMug = document.querySelector('#hate');
@@ -16,38 +17,42 @@
     const myCodeMug = document.querySelector('#code');
     const mySmileMug = document.querySelector('#smile');
     const myMagicMug = document.querySelector('#magic');
-
+    // Control lights
     const myWaterIndicator = document.querySelector('.water-bar');
     const myBeanIndicator = document.querySelector('.bean-bar');
     const myMilkIndicator = document.querySelector('.milk-bar');
-
+    // Refill tanks 
     const myWaterTank = document.querySelector('.mug .water');
     const myBeanTank = document.querySelector('.mug .beans');
     const myMilkTank = document.querySelector('.mug .milk');
-    
+    // 
     const myRewards = document.querySelector('.rewards');
+    const myCounterDisplay = document.querySelector('.counter-and-trophies');
+    const myStarAwards = document.querySelector('.star-awards');
+    // Award badges
     const myFirstAward = document.querySelector('.first-award');
     const mySecondAward = document.querySelector('.second-award');
     const myThirdAward = document.querySelector('.third-award');
-
+    // Achievement texts
     const myFirstAchievement = document.querySelector('.first-achievement');
     const mySecondAchievement = document.querySelector('.second-achievement');
     const myThirdAchievement = document.querySelector('.third-achievement');
-
+    // Trophies
     const myFirstTrophy = document.querySelector('.first-trophy');
-    // Bar Counter function
-    const barCounter = function(element) {
-        return element.querySelectorAll('.second-bar').length;
-    };
+    const mySecondTrophy = document.querySelector('.second-trophy');
+    const myThirdTrophy = document.querySelector('.third-trophy');
     // Counter for filled and used up mugs
     let myUsedUpMugCounter = 0;
     let myMugFilledCounter =0;
-    const myCounterDisplay = document.querySelector('.counter-display');
+    // Counter labels
     const myUsedUpMugLabel = document.querySelector('.counter-display .mug-count');
     const myCoffeeMadeLabel = document.querySelector('.counter-display .coffee-count');
     // Indicator for filled mugs
     let mugFilled = false;
-
+    // Bar Counter function
+    const barCounter = function(element) {
+        return element.querySelectorAll('.second-bar').length;
+    };
     // Led: Check if ingredients out
     if (barCounter(myWaterIndicator) == 0) {
         document.querySelector('#water-led').classList.add('on');   
@@ -102,7 +107,7 @@
                     myCoffeeMadeLabel.innerHTML = `Your machine made ${myMugFilledCounter} coffee`
                     if (myMugFilledCounter == 1 ) {
                         // From now on Rewards display free
-                        myRewards.classList.remove('hidden');
+                        myRewards.classList.remove('non-visible');
                         // First achievement display on hover
                         myFirstAchievement.classList.remove('hidden');
                         myFirstAward.classList.add('done');
@@ -123,7 +128,8 @@
                         document.querySelector('#machine-mug h3.magic').classList.add('hidden');
                         document.querySelector('.do-magic-label').classList.remove('hidden');
                         // Third Achievement revealed
-                        myCounterDisplay.classList.remove('hidden');
+                        myCounterDisplay.classList.remove('non-visible');
+                        myStarAwards.classList.remove('non-visible');
                         myThirdAchievement.classList.remove('hidden');
                         myThirdAward.classList.add('done');
                         myThirdAward.classList.add('shine-up');
@@ -166,7 +172,7 @@
                     // On first use
                     if (myMugFilledCounter == 1 ) {
                         // From now on Rewards display
-                        myRewards.classList.remove('hidden');
+                        myRewards.classList.remove('non-visible');
                         // First achievement display on hover
                         myFirstAchievement.classList.remove('hidden');
                         myFirstAward.classList.add('done');
@@ -187,7 +193,8 @@
                         document.querySelector('#machine-mug h3.magic').classList.add('hidden');
                         document.querySelector('.do-magic-label').classList.remove('hidden');
                         // Third Achievement revealed
-                        myCounterDisplay.classList.remove('hidden');
+                        myCounterDisplay.classList.remove('non-visible');
+                        myStarAwards.classList.remove('non-visible');
                         myThirdAchievement.classList.remove('hidden');
                         myThirdAward.classList.add('done');
                         myThirdAward.classList.add('shine-up');

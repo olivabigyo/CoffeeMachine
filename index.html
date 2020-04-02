@@ -10,8 +10,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
 <body>
+    <!-- Navigation will be a display for trophies awards and achievemnt rewards -->
+    <nav>
+        <!-- Counter Display -->
+        <div class="counter-and-trophies non-visible">
+            <div class="counter-display">
+                <h4 class="coffee-count"></h4>
+                <h4 class="mug-count"></h4>
+            </div>
+            <div class="trophies">
+                <i class="fas fa-trophy first-trophy"></i>
+                <i class="fas fa-trophy second-trophy"></i>
+                <i class="fas fa-trophy third-trophy"></i>
+            </div>
+        </div>
+
+        <!-- Stars -->
+        <div class="star-awards non-visible">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+
+        <!-- Acievements -->
+        <div class="rewards non-visible">
+            <i class="fas fa-award third-award"></i>
+            <i class="fas fa-award second-award"></i>
+            <i class="fas fa-award first-award"></i>
+            <div class="achievement-texts">
+                <p class="first-achievement hidden">* You made your first coffee today!</p>
+                <p class="second-achievement hidden">** You used up all the mugs!</p>
+                <p class="third-achievement hidden">*** You did do magic!</p>
+            </div>
+        </div>
+    </nav>
     <main>
-        <!-- On the left side there is a cabinet with mugs -->
+        <!-- On the left side of the table there is a closed cabinet with 6 mugs, 3 of them are hidden -->
         <div class="cabinet left">
             <div id="door-opening-left"></div>
             <div class="shelf hidden">
@@ -45,7 +79,7 @@
                 </div>
             </div>  
         </div>
-        <!-- In the middle there is the coffee machine -->
+        <!-- In the middle there is the coffee machine in off status -->
         <div class="coffee-machine">
             <div class="upper-part">
                 <div class="selection">
@@ -65,6 +99,7 @@
                         </div>
                         <h2>ON / OFF</h2>
                     </div>
+                    <!-- Ingredient status leds -->
                     <div class="control-lights">
                         <div class="row water-bar non-visible">
                             <div class="bar"></div>
@@ -97,7 +132,9 @@
                     <div class="liquids">
                         <h3 class="hidden">No Mug :(</h3>
                     </div>
+                    <!-- The mug in the machine is only visible after we put mug there -->
                     <div class="mug hidden" id="machine-mug">
+                        <!-- It has all the labels of the other mugs -->
                         <h3 class="love hidden">I love coffee!</h3>
                         <h3 class="hate hidden">I hate Mondays!</h3>
                         <h3 class="mom hidden">Best Mom!</h3>
@@ -113,7 +150,7 @@
     
             </div>
         </div>
-        <!-- On the right side there is a cabinet with containers for water coffee-beans and milk -->
+        <!-- On the right side there is a closed cabinet with containers for water coffee-beans and milk -->
         <div class="cabinet right">
             <div id="door-opening-right"></div>
             <div class="shelf hidden">
@@ -143,10 +180,10 @@
         </div>
     </main>
     <div class="table">
-    <!-- Dishwasher -->
+    <!-- Dishwasher under the table, only visible after the second acievement -->
         <div class="dishwasher hidden">
             <div class="dish-controls">
-                <p>Premium dishwasher for coffe mugs</p>
+                <p>Premium dishwasher for coffee mugs</p>
                 <div class="power">
                     <div class="start-button">
                         <div class="dish-on-sign hidden"></div>
@@ -156,32 +193,11 @@
             </div>
         </div>
     </div>
-<!-- Acievements -->
-<div class="rewards hidden">
-    <i class="fas fa-award third-award"></i>
-    <i class="fas fa-award second-award"></i>
-    <i class="fas fa-award first-award"></i>
-    <div class="achievement-texts">
-        <p class="first-achievement hidden">* You made your first coffee today!</p>
-        <p class="second-achievement hidden">** You used up all the mugs!</p>
-        <p class="third-achievement hidden">*** You did do magic!</p>
-    </div>
-</div>
 
-<!-- Counter Display -->
-<div class="counter-display hidden">
-    <h4 class="coffee-count"></h4>
-    <h4 class="mug-count"></h4>
-    <div class="trophies">
-        <i class="fas fa-trophy first-trophy"></i>
-        <i class="fas fa-trophy second-trophy"></i>
-        <i class="fas fa-trophy third-trophy"></i>
-    </div>
-</div>
-<!-- Extras -->
+<!-- Extra sound effects -->
     <audio id="play-on" src="http://www.soundjay.com/button/beep-07.wav"></audio>
     <audio id="play-start" src="http://www.soundjay.com/nature/water-splash-3.wav"></audio>
-
+<!-- Code -->
     <script src="code.js"></script>
 </body>
 </html>

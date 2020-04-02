@@ -34,9 +34,9 @@
     const mySecondAward = document.querySelector('.second-award');
     const myThirdAward = document.querySelector('.third-award');
     // Achievement texts
-    const myFirstAchievement = document.querySelector('.first-achievement');
-    const mySecondAchievement = document.querySelector('.second-achievement');
-    const myThirdAchievement = document.querySelector('.third-achievement');
+    const myFirstAchievementLabel = document.querySelector('.first-achievement');
+    const mySecondAchievementLabel = document.querySelector('.second-achievement');
+    const myThirdAchievementLabel = document.querySelector('.third-achievement');
     // Trophies
     const myFirstTrophy = document.querySelector('.first-trophy');
     const mySecondTrophy = document.querySelector('.second-trophy');
@@ -95,7 +95,7 @@
             if (barCounter(myWaterIndicator) > 0 && barCounter(myBeanIndicator) > 0) {
                 // If NO mug in the machine
                 if (myMachineMug.classList.contains('hidden')) {
-                    // Showw message, do not spill coffee :)
+                    // Show message, do not spill coffee :)
                     document.querySelector('.liquids h3').classList.remove('hidden');
                     setTimeout(() => document.querySelector('.liquids h3').classList.add('hidden'), 2000)
                 }
@@ -106,34 +106,22 @@
                     console.log('The mug was filled with coffee');
                     myCoffeeMadeLabel.innerHTML = `Your machine made ${myMugFilledCounter} coffee`
                     if (myMugFilledCounter == 1 ) {
-                        // From now on Rewards display free
-                        myRewards.classList.remove('non-visible');
-                        // First achievement display on hover
-                        myFirstAchievement.classList.remove('hidden');
-                        myFirstAward.classList.add('done');
-                        myFirstAward.classList.add('shine-up');
-                        setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
+                        // From now on Achievement Rewards Display visible
+                        displayRewards()
                     }
                     // For the 10th coffee
                     if (myMugFilledCounter > 9) {
-                        myFirstTrophy.classList.add('done');
+                        // Get badge with color and shine up animation
+                        displayDoneAndShineUp(myFirstTrophy);
                     }
                     // Liquids into the mug for 3s
                     document.querySelector('.liquids').classList.add('liquid-coffee');
                     setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 2500);
                     // If Magic mug used
                     if (!document.querySelector('#machine-mug h3.magic').classList.contains('hidden')) {
-                        console.log('Magic mug is used');
-                        // Do magic label
-                        document.querySelector('#machine-mug h3.magic').classList.add('hidden');
-                        document.querySelector('.do-magic-label').classList.remove('hidden');
-                        // Third Achievement revealed
-                        myCounterDisplay.classList.remove('non-visible');
-                        myStarAwards.classList.remove('non-visible');
-                        myThirdAchievement.classList.remove('hidden');
-                        myThirdAward.classList.add('done');
-                        myThirdAward.classList.add('shine-up');
-                        setTimeout(() => myThirdAward.classList.remove('shine-up'), 1000);
+                        // Put magic label on the mug
+                        // Third Achievement revealed: display counters, trophies and stars
+                        doMagic()
                     }
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
@@ -171,34 +159,22 @@
                     myCoffeeMadeLabel.innerHTML = `Your machine made ${myMugFilledCounter} coffee`
                     // On first use
                     if (myMugFilledCounter == 1 ) {
-                        // From now on Rewards display
-                        myRewards.classList.remove('non-visible');
-                        // First achievement display on hover
-                        myFirstAchievement.classList.remove('hidden');
-                        myFirstAward.classList.add('done');
-                        myFirstAward.classList.add('shine-up');
-                        setTimeout(() => myFirstAward.classList.remove('shine-up'), 1000);
+                        // From now on Achievement Rewards Display visible
+                        displayRewards();
                     }
                     // For the 10th coffee
                     if (myMugFilledCounter > 9) {
-                        myFirstTrophy.classList.add('done');
+                        // Get badge with color and shine up animation
+                        displayDoneAndShineUp(myFirstTrophy);
                     }
                     // Liquids into the mug for 3s
                     document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
                     setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 2500)
                     // If Magic mug used
                     if (!document.querySelector('#machine-mug h3.magic').classList.contains('hidden')) {
-                        console.log('Magic mug is used');
-                        // Do magic label
-                        document.querySelector('#machine-mug h3.magic').classList.add('hidden');
-                        document.querySelector('.do-magic-label').classList.remove('hidden');
-                        // Third Achievement revealed
-                        myCounterDisplay.classList.remove('non-visible');
-                        myStarAwards.classList.remove('non-visible');
-                        myThirdAchievement.classList.remove('hidden');
-                        myThirdAward.classList.add('done');
-                        myThirdAward.classList.add('shine-up');
-                        setTimeout(() => myThirdAward.classList.remove('shine-up'), 1000);
+                        // Put magic label on the mug
+                        // Third Achievement revealed: display counters, trophies and stars
+                        doMagic();
                     }
                     // Remove One Ingredient bar
                     myWaterIndicator.removeChild(myWaterIndicator.querySelector('.second-bar'));
@@ -219,6 +195,37 @@
         }
     });
     
+    function doMagic() {
+        console.log('Magic mug is used');
+        // Put magic label on the mug
+        document.querySelector('#machine-mug h3.magic').classList.add('hidden');
+        document.querySelector('.do-magic-label').classList.remove('hidden');
+        // Third Achievement revealed: display counters, trophies and stars
+        myCounterDisplay.classList.remove('non-visible');
+        myStarAwards.classList.remove('non-visible');
+        myThirdAchievementLabel.classList.remove('hidden');
+        displayDoneAndShineUp(myThirdAward);
+
+    }
+
+    function displayRewards() {
+        // From now on Achievement Rewards Display visible
+        myRewards.classList.remove('non-visible');
+        // First achievement display on hover
+        myFirstAchievementLabel.classList.remove('hidden');
+        // Get first award badge for the first achievement
+        displayDoneAndShineUp(myFirstAward);
+    }
+
+    function displayDoneAndShineUp(badge) {
+        // Get badge with color and shine up animation
+        badge.classList.add('done');
+        badge.classList.add('shine-up');
+        setTimeout(() => badge.classList.remove('shine-up'), 1000);
+
+    }
+
+
     // Open cabinets
     // Left Cabinet
     myLeftCabinet.addEventListener('click', function() {
@@ -303,11 +310,11 @@
         mugFilled = false;
         if (myUsedUpMugCounter == 3) {
             // Second achievement display on hover
-            mySecondAchievement.classList.remove('hidden');
+            mySecondAchievementLabel.classList.remove('hidden');
+            // Dishwasher revealed
             myDishwasher.classList.remove('hidden');
-            mySecondAward.classList.add('done');
-            mySecondAward.classList.add('shine-up');
-            setTimeout(() => mySecondAward.classList.remove('shine-up'), 1000);
+            // Get badge with color and shine up animation
+            displayDoneAndShineUp(mySecondAward);
         }
         // Labels and liquids off
         document.querySelector('#machine-mug .hate').classList.add('hidden');

@@ -422,6 +422,9 @@ main {
 .trophies i.done {
     color: black;
 }
+.trophies i.shine-up {
+    animation: shineUp 1s;
+}
 
 /* Awards */
 .star-awards {

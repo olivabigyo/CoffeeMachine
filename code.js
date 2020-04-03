@@ -41,9 +41,14 @@
     const myFirstTrophy = document.querySelector('.first-trophy');
     const mySecondTrophy = document.querySelector('.second-trophy');
     const myThirdTrophy = document.querySelector('.third-trophy');
+    // Stars
+    const myFirstStarAward = document.querySelector('.first-star');
+    const mySecondStarAward = document.querySelector('.second-star');
+    const myThirdStarAward = document.querySelector('.third-star');
     // Counter for filled and used up mugs
     let myUsedUpMugCounter = 0;
-    let myMugFilledCounter =0;
+    let myMugFilledCounter = 0;
+    let myEspressoPortionCounter = 0;
     // Counter labels
     const myUsedUpMugLabel = document.querySelector('.counter-display .mug-count');
     const myCoffeeMadeLabel = document.querySelector('.counter-display .coffee-count');
@@ -103,6 +108,7 @@
                 else {
                     mugFilled = true;
                     myMugFilledCounter++;
+                    myEspressoPortionCounter++;
                     console.log('The mug was filled with coffee');
                     myCoffeeMadeLabel.innerHTML = `Your machine made ${myMugFilledCounter} coffee`
                     if (myMugFilledCounter == 1 ) {
@@ -110,7 +116,7 @@
                         displayRewards()
                     }
                     // For the 10th coffee
-                    if (myMugFilledCounter > 9) {
+                    if (myMugFilledCounter == 10) {
                         // Get badge with color and shine up animation
                         displayDoneAndShineUp(myFirstTrophy);
                     }
@@ -128,6 +134,7 @@
                     myBeanIndicator.removeChild(myBeanIndicator.querySelector('.second-bar'));
                 }    
             }
+            // Led: Check if ingredients out
             if (barCounter(myWaterIndicator) == 0) {
                 document.querySelector('#water-led').classList.add('on');
             }
@@ -163,7 +170,7 @@
                         displayRewards();
                     }
                     // For the 10th coffee
-                    if (myMugFilledCounter > 9) {
+                    if (myMugFilledCounter == 10) {
                         // Get badge with color and shine up animation
                         displayDoneAndShineUp(myFirstTrophy);
                     }
@@ -316,7 +323,20 @@
             // Get badge with color and shine up animation
             displayDoneAndShineUp(mySecondAward);
         }
-        // Labels and liquids off
+        if (myUsedUpMugCounter == 12) {
+            // Get badge with color and shine up animation
+            displayDoneAndShineUp(mySecondTrophy);
+        }
+        if (myEspressoPortionCounter == 2) {
+            // Get badge with color and shine up animation
+            displayDoneAndShineUp(myFirstStarAward);
+        }
+        if (myEspressoPortionCounter == 8) {
+            // Get badge with color and shine up animation
+            displayDoneAndShineUp(mySecondStarAward);
+        }
+        // Counters, Labels and liquids off
+        myEspressoPortionCounter = 0;
         document.querySelector('#machine-mug .hate').classList.add('hidden');
         document.querySelector('#machine-mug .love').classList.add('hidden');
         document.querySelector('#machine-mug .mom').classList.add('hidden');

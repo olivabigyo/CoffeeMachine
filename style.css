@@ -9,6 +9,9 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #f0f0f0;
+}
 nav {
     max-width: 1900px;
     height: 100px;
@@ -175,7 +178,7 @@ main {
     margin: 0 5px;
 }
 .on {
-    background-color: yellow;
+    background-color: gold;
 }
 
 .bar {
@@ -367,7 +370,7 @@ main {
     margin: 2px;
 }
 .rewards i.done {
-    color: black;
+    color: cadetblue;
 }
 .rewards i.shine-up {
     animation: shineUp 1s;
@@ -420,7 +423,7 @@ main {
 }
 
 .trophies i.done {
-    color: black;
+    color: goldenrod;
 }
 .trophies i.shine-up {
     animation: shineUp 1s;
@@ -435,10 +438,17 @@ main {
     font-size: 3rem;
 }
 .star-awards i.done {
-    color: black;
+    color: gold;
 }
 .star-awards i.shine-up {
     animation: shineUp 1s;
+}
+.star-awards i.done:hover {
+    animation: spin 3s;
+}
+@keyframes spin {
+    0 %     {transform: rotate(0deg); transform-origin: center center;}
+    100%    {transform: rotate(359deg); transform-origin: center center;}
 }
 
 

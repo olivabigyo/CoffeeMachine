@@ -414,6 +414,7 @@ main {
 .trophies {
     display: flex;
     margin-top: 10px;
+    position: relative;
 }
 
 .trophies i {
@@ -427,6 +428,15 @@ main {
 }
 .trophies i.shine-up {
     animation: shineUp 1s;
+}
+
+.trophies p{
+    display: none;
+    position: absolute;
+    top: 55px;
+}
+.first-trophy-container:hover .first-trophy-text, .second-trophy-container:hover .second-trophy-text, .third-trophy-container:hover .third-trophy-text  {
+    display: flex;
 }
 
 /* Awards */
@@ -450,7 +460,15 @@ main {
     0 %     {transform: rotate(0deg); transform-origin: center center;}
     100%    {transform: rotate(359deg); transform-origin: center center;}
 }
+.star-awards p {
+    display: none;
+    position: absolute;
+    top: 65px;
+}
 
+.first-star-container:hover .first-star-text, .second-star-container:hover .second-star-text, .third-star-container:hover .third-star-text  {
+    display: flex;
+}
 
 /* Specials */
 .hidden {

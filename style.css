@@ -457,8 +457,14 @@ main {
     animation: spin 3s;
 }
 @keyframes spin {
-    0 %     {transform: rotate(0deg); transform-origin: center center;}
-    100%    {transform: rotate(359deg); transform-origin: center center;}
+    0 %  {
+        transform: rotate(0deg); 
+        transform-origin: center center;
+    }
+    100% {
+        transform: rotate(359deg); 
+        transform-origin: center center;
+    }
 }
 .star-awards p {
     display: none;

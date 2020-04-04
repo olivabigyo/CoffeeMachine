@@ -74,7 +74,7 @@
     
     myOnOffButton.addEventListener('click', function() {
         console.log('On/Off Button was clicked.');
-        // On sign on the button and beep
+        // On-sign on the button and beep
         document.querySelector('.on-sign').classList.toggle('hidden');
         document.getElementById('play-on').play();
         // Screen on
@@ -120,9 +120,9 @@
                         // Get badge with color and shine up animation
                         displayDoneAndShineUp(myFirstTrophy);
                     }
-                    // Liquids into the mug for 3s
+                    // Liquids into the mug for 2s
                     document.querySelector('.liquids').classList.add('liquid-coffee');
-                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 2500);
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee'), 2000);
                     // If Magic mug used
                     if (!document.querySelector('#machine-mug h3.magic').classList.contains('hidden')) {
                         // Put magic label on the mug
@@ -174,9 +174,9 @@
                         // Get badge with color and shine up animation
                         displayDoneAndShineUp(myFirstTrophy);
                     }
-                    // Liquids into the mug for 3s
+                    // Liquids into the mug for 2s
                     document.querySelector('.liquids').classList.add('liquid-coffee', 'liquid-milk');
-                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 2500)
+                    setTimeout(() => document.querySelector('.liquids').classList.remove('liquid-coffee', 'liquid-milk'), 2000)
                     // If Magic mug used
                     if (!document.querySelector('#machine-mug h3.magic').classList.contains('hidden')) {
                         // Put magic label on the mug
@@ -310,8 +310,8 @@
     myMachineMug.addEventListener('click', function() {
         // Take Away animation and mug off
         myMachineMug.classList.add('take-away');
-        setTimeout(() => myMachineMug.classList.remove('take-away'), 1500);
-        setTimeout(() => myMachineMug.classList.add('hidden'), 1500);
+        setTimeout(() => myMachineMug.classList.remove('take-away'), 1000);
+        setTimeout(() => myMachineMug.classList.add('hidden'), 1000);
         myUsedUpMugCounter++;
         myUsedUpMugLabel.innerHTML = `You used up ${myUsedUpMugCounter} mugs`
         mugFilled = false;
@@ -405,14 +405,14 @@
         document.querySelector('.dish-on-sign').classList.remove('hidden');
         // Water Splash sound on the machine twice 
         document.getElementById('play-start').play();
-        setTimeout(() => document.getElementById('play-start').play(), 2000);
+        setTimeout(() => document.getElementById('play-start').play(), 1500);
         // On-sign off
-        setTimeout(() => document.querySelector('.dish-on-sign').classList.add('hidden'), 2000);
+        setTimeout(() => document.querySelector('.dish-on-sign').classList.add('hidden'), 1500);
         // All mugs back to the cabinet (extra too)
-        setTimeout(() => myLoveMug.classList.remove('hidden'), 3000);
-        setTimeout(() => myHateMug.classList.remove('hidden'), 3000);
-        setTimeout(() => myMomMug.classList.remove('hidden'), 3000);
-        setTimeout(() => myCodeMug.classList.remove('hidden'), 3000);
-        setTimeout(() => mySmileMug.classList.remove('hidden'), 3000);
-        setTimeout(() => myMagicMug.classList.remove('hidden'), 3000);
+        setTimeout(() => myLoveMug.classList.remove('hidden'), 2000);
+        setTimeout(() => myHateMug.classList.remove('hidden'), 2000);
+        setTimeout(() => myMomMug.classList.remove('hidden'), 2000);
+        setTimeout(() => myCodeMug.classList.remove('hidden'), 2000);
+        setTimeout(() => mySmileMug.classList.remove('hidden'), 2000);
+        setTimeout(() => myMagicMug.classList.remove('hidden'), 2000);
     })
